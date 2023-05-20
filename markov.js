@@ -43,7 +43,7 @@ class MarkovMachine {
       }
     }
     // TODO
-    console.log(`This is chains ${chains}`);
+    // console.log(`This is chains ${chains}`);
 
     this.chains = chains;
   }
@@ -55,7 +55,7 @@ class MarkovMachine {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  makeText(numWords = 5) {
+  makeText(numWords = 100) {
     let textMade = [];
 
     //Get keys array
@@ -63,24 +63,24 @@ class MarkovMachine {
 
     //randomize key and then push key
     let key = MarkovMachine.choice(keysArr);
-    console.log(`This is the first key:  ${key}`);
+    // console.log(`This is the first key:  ${key}`);
     textMade.push(key);
 
     for (let i = 1; i < numWords; i++) {
       //get a random word from key chains
       let word = MarkovMachine.choice(this.chains[key]);
 
-      console.log(`This is text made: ${textMade}`);
+      // console.log(`This is text made: ${textMade}`);
       //if word is null, stop
       if (word == null) {
-        console.log(`This is randomized word : ${word}`);
+        // console.log(`This is randomized word : ${word}`);
         break;
         //else push that randomized word and make the word the new key
       } else {
-        console.log(`This is randomized word : ${word}`);
+        // console.log(`This is randomized word : ${word}`);
         textMade.push(word);
         key = word;
-        console.log(`This is new key: ${key}`);
+        // console.log(`This is new key: ${key}`);
       }
     }
     // TODO
